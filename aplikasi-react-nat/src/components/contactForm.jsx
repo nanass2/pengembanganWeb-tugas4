@@ -25,7 +25,10 @@ function ContactForm({ onAdd }) {
         type="text"
         placeholder="No. HP"
         value={phone}
-        onChange={(e) => setPhone(e.target.value)}
+        onChange={(e) => {
+          const onlyNumbers = e.target.value.replace(/[^0-9]/g, '');
+          setPhone(onlyNumbers)
+        }}
         style={{ padding: '8px', marginRight: '5px' }}
       />
       <button type="submit" style={{ padding: '8px' }}>Tambah</button>
